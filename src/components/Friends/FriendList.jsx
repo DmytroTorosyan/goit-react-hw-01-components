@@ -1,4 +1,4 @@
-import css from './Friends.module.css';
+import css from './FriendList.module.css';
 import PropTypes from 'prop-types';
 
 export const FriendList = ({ friends }) => {
@@ -19,9 +19,20 @@ export const FriendList = ({ friends }) => {
   );
 };
 
-FriendList.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool.isRequired,
-  id: PropTypes.number.isRequired,
+FriendList.prototype = {
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
+
+// FriendList.propTypes = {  
+//   avatar: PropTypes.string.isRequired,
+//   name: PropTypes.string.isRequired,
+//   isOnline: PropTypes.bool.isRequired,
+//   id: PropTypes.number.isRequired,
+// };
